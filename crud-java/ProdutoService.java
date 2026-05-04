@@ -15,8 +15,8 @@ public class ProdutoService {
 
         for (Produto encontraProduto : listaProdutos) {
             if (encontraProduto.nome.equals(nome)) {
-                System.out.println("Produto encontrado " + encontraProduto.nome + encontraProduto.id
-                        + encontraProduto.preco + encontraProduto.quantidade);
+                System.out.println("Produto encontrado " + encontraProduto.nome + " " + encontraProduto.id + ""
+                        + encontraProduto.preco + " " + encontraProduto.quantidade);
                 produtoEncontrado = true;
             }
         }
