@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -22,6 +19,10 @@ public class Main {
         service.adicionarProduto(p1);
         service.adicionarProduto(p2);
 
+        service.buscaProduto("Caneta Azul");
+        service.atualizaProduto(1);
+        service.deleteProduto(2);
+        service.mostraProduto();
     }
 
 }

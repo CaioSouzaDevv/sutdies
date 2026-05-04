@@ -52,4 +52,10 @@ public class ProdutoService {
         }
     }
 
+    public void mostraProduto() {
+        for (Produto produto : listaProdutos) {
+            produto.exibirDetalhes();
+        }
+    }
+
 }
