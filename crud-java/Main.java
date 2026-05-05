@@ -34,6 +34,7 @@ public class Main {
             System.err.println("2- Atualizar Produto por ID");
             System.err.println("3- Deletar Produto por ID");
             System.err.println("4- Lista Produto");
+            System.err.println("5- Adicionar Produto");
 
             System.err.println("Escolha uma opção");
 
@@ -77,6 +78,28 @@ public class Main {
 
                     case 4:
                         service.mostraProduto();
+                        break;
+
+                    case 5:
+                        System.out.println("Digite o id do novo produto");
+                        int recebeIdCadastro = menu.nextInt();
+                        menu.nextLine();
+                        System.out.println("Digite o nome do novo produto");
+                        String recebeNomeCadastro = menu.nextLine();
+                        System.out.println("Digite o preco do novo produto");
+                        double recebePrecoCadastro = menu.nextDouble();
+
+                        System.out.println("Digite a quantidade do novo produto");
+                        int recebeQtdCadastro = menu.nextInt();
+
+                        Produto p3 = new Produto();
+
+                        p3.id = recebeIdCadastro;
+                        p3.nome = recebeNomeCadastro;
+                        p3.preco = recebePrecoCadastro;
+                        p3.quantidade = recebeQtdCadastro;
+
+                        service.adicionarNovoProduto(p3);
                         break;
 
                     default:

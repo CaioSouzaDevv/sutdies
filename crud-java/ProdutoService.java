@@ -6,8 +6,13 @@ public class ProdutoService {
     List<Produto> listaProdutos = new ArrayList<>();
 
     public void adicionarProduto(Produto produto) {
+
         listaProdutos.add(produto);
 
+    }
+
+    public void adicionarNovoProduto(Produto produto) {
+        listaProdutos.add(produto);
     }
 
     public void buscaProduto(String nome) {
@@ -15,8 +20,9 @@ public class ProdutoService {
 
         for (Produto encontraProduto : listaProdutos) {
             if (encontraProduto.nome.equals(nome)) {
-                System.out.println("Produto encontrado " + encontraProduto.nome + " " + encontraProduto.id + ""
-                        + encontraProduto.preco + " " + encontraProduto.quantidade);
+                System.out.println("Produto encontrado " + "Nome: " + encontraProduto.nome + "ID: " + " - "
+                        + encontraProduto.id + ""
+                        + "Preço: " + encontraProduto.preco + " - " + "Quantidade: " + encontraProduto.quantidade);
                 produtoEncontrado = true;
             }
         }
