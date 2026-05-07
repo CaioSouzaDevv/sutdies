@@ -35,7 +35,7 @@ public class Main {
                         System.out.println("Digite o nome do produto");
                         String nome = menu.nextLine();
                         service.buscaProduto(nome);
-                        escolha = 0;
+                        
                         break;
 
                     case 2:
@@ -50,7 +50,7 @@ public class Main {
 
                         service.atualizaProduto(idRecebido, novoNome);
 
-                        escolha = 0;
+                        
 
                         break;
 
@@ -60,7 +60,7 @@ public class Main {
                         int idDeletar = menu.nextInt();
                         service.deleteProduto(idDeletar);
                         service.mostraProduto();
-                        escolha = 0;
+                        
                         break;
 
                     case 4:

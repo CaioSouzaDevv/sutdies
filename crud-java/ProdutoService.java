@@ -23,7 +23,6 @@ public class ProdutoService {
 
     }
 
-
     public void buscaProduto(String nome) {
         boolean produtoEncontrado = false;
 
@@ -45,19 +44,15 @@ public class ProdutoService {
 
     public void atualizaProduto(int idRecebido, String novoNome) {
 
-        boolean idAtualizado = false;
-
-        for (Produto atualizaproduto : listaProdutos) {
-            if (idRecebido == atualizaproduto.id) {
-
-                atualizaproduto.nome = novoNome;
-                System.err.println("Novo nome atualizado " + novoNome);
-                idAtualizado = true;
-            }
-
+        boolean idEncontrado = false;
+        for (Produto produto : listaProdutos) {
+            if (idRecebido == produto.id) {
+                produto.nome = novoNome;
+                System.out.println("Produto renomeado para " + novoNome);
+                idEncontrado = true;
+            } 
         }
-
-        if (!idAtualizado) {
+        if (!idEncontrado) {
             System.out.println("Id não encontrado");
         }
 
@@ -73,14 +68,14 @@ public class ProdutoService {
     }
 
     public void mostraProduto() {
-           if(listaProdutos.isEmpty()) {
-                System.out.println("Não temos produtos cadastrados");
-            }
+        if (listaProdutos.isEmpty()) {
+            System.out.println("Não temos produtos cadastrados");
+        }
         for (Produto produto : listaProdutos) {
-           
+
             produto.exibirDetalhes();
         }
-      
+
     }
 
 }
