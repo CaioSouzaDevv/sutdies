@@ -27,7 +27,7 @@ public class ProdutoService {
         boolean produtoEncontrado = false;
 
         for (Produto encontraProduto : listaProdutos) {
-            if (encontraProduto.nome.equals(nome)) {
+            if (encontraProduto.nome.equalsIgnoreCase(nome)) {
                 System.out.println("Produto encontrado " + "ID: " + encontraProduto.id);
                 System.out.println("Produto encontrado " + "Nome: " + encontraProduto.nome);
                 System.out.println("Produto encontrado " + "Preço: " + encontraProduto.preco);
@@ -53,7 +53,6 @@ public class ProdutoService {
                 System.out.println("Produto renomeado para " + novoNome);
                 System.out.println("Produto com novo preço " + novoPreco);
                 System.out.println("Nova quantidade disponivel " + novaQtd);
-                System.out.println("Produto renomeado para " + novoNome);
                 idEncontrado = true;
             }
         }

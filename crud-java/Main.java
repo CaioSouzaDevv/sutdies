@@ -5,8 +5,6 @@ public class Main {
 
         ProdutoService service = new ProdutoService();
 
-     
-
         service.mostraProduto();
 
         Scanner menu = new Scanner(System.in);
@@ -35,13 +33,13 @@ public class Main {
                         System.out.println("Digite o nome do produto");
                         String nome = menu.nextLine();
                         service.buscaProduto(nome);
-                        
+
                         break;
 
                     case 2:
                         menu.nextLine();
                         System.out.println("Digite o número do id");
-                    
+
                         int idRecebido = menu.nextInt();
                         menu.nextLine();
 
@@ -56,8 +54,6 @@ public class Main {
 
                         service.atualizaProduto(idRecebido, novoNome, novoPreco, novaQtd);
 
-                        
-
                         break;
 
                     case 3:
@@ -66,7 +62,7 @@ public class Main {
                         int idDeletar = menu.nextInt();
                         service.deleteProduto(idDeletar);
                         service.mostraProduto();
-                        
+
                         break;
 
                     case 4:
@@ -75,7 +71,7 @@ public class Main {
 
                     case 5:
                         System.out.println("Digite o id do novo produto");
-                        
+
                         int recebeIdCadastro = menu.nextInt();
                         menu.nextLine();
                         System.out.println("Digite o nome do novo produto");
@@ -92,8 +88,6 @@ public class Main {
                         p3.nome = recebeNomeCadastro;
                         p3.preco = recebePrecoCadastro;
                         p3.quantidade = recebeQtdCadastro;
-
-                        
 
                         service.adicionarNovoProduto(p3);
                         break;
