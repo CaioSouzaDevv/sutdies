@@ -5,12 +5,6 @@ public class ProdutoService {
 
     List<Produto> listaProdutos = new ArrayList<>();
 
-    public void adicionarProduto(Produto produto) {
-
-        listaProdutos.add(produto);
-
-    }
-
     public void adicionarNovoProduto(Produto produto) {
         if (produto.nome.isBlank()) {
             System.out.println("Digite um nome válido.");
@@ -61,7 +55,7 @@ public class ProdutoService {
     public void atualizaProduto(int idRecebido, String novoNome, double novoPreco, int novaQtd) {
 
         boolean idEncontrado = false;
-        if(novoNome.isBlank()) {
+        if (novoNome.isBlank()) {
             System.out.println("Digite um nome válido");
             return;
         }
@@ -95,7 +89,7 @@ public class ProdutoService {
     }
 
     public void deleteProduto(int idDeletar) {
-        if(idDeletar <= 0) {
+        if (idDeletar <= 0) {
             System.out.println("ID negativo, por favor digite um ID válido.");
             return;
         }
@@ -110,7 +104,7 @@ public class ProdutoService {
     public void buscaProdutoPorId(int buscaPorId) {
         boolean produtoEncontradoPorId = false;
 
-        if(buscaPorId <= 0) {
+        if (buscaPorId <= 0) {
             System.out.println("Digite um ID válido.");
             return;
         }
@@ -135,10 +129,10 @@ public class ProdutoService {
         if (listaProdutos.isEmpty()) {
             System.out.println("Não temos produtos cadastrados");
         } else {
-        for (Produto produto : listaProdutos) {
-            System.out.println("-----------------");
-            produto.exibirDetalhes();
-}
+            for (Produto produto : listaProdutos) {
+                System.out.println("-----------------");
+                produto.exibirDetalhes();
+            }
         }
 
     }
