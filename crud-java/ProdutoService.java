@@ -7,14 +7,21 @@ public class ProdutoService {
 
     public void adicionarProduto(Produto produto) {
 
-        
         listaProdutos.add(produto);
 
     }
 
     public void adicionarNovoProduto(Produto produto) {
-        if(produto.id <= 0) {
+        if (produto.id <= 0) {
             System.err.println("ID negativo ou igual a 0. tente novamente");
+            return;
+        }
+        if (produto.preco <= 0) {
+            System.out.println("Preço inválido, tente novamente.");
+            return;
+        }
+        if (produto.quantidade <= 0) {
+            System.out.println("Quantidade inválido, tente novamente.");
             return;
         }
         for (Produto produtoNovo : listaProdutos) {
@@ -50,6 +57,18 @@ public class ProdutoService {
     public void atualizaProduto(int idRecebido, String novoNome, double novoPreco, int novaQtd) {
 
         boolean idEncontrado = false;
+        if (idRecebido <= 0) {
+            System.out.println("Digite um id acima de 0.");
+            return;
+        }
+        if (novoPreco <= 0) {
+            System.out.println("Digite um valor de preço válido");
+            return;
+        }
+        if (novaQtd <= 0) {
+            System.out.println("Digite uma quantidade válida");
+            return;
+        }
         for (Produto produto : listaProdutos) {
             if (idRecebido == produto.id) {
                 produto.nome = novoNome;
