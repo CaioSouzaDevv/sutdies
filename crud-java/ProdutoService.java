@@ -87,6 +87,10 @@ public class ProdutoService {
     }
 
     public void deleteProduto(int idDeletar) {
+        if(idDeletar <= 0) {
+            System.out.println("ID negativo, por favor digite um ID válido.");
+            return;
+        }
         boolean removido = listaProdutos.removeIf(produto -> produto.id == idDeletar);
         if (!removido) {
             System.out.println("Id Não encontrado");
