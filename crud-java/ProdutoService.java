@@ -7,28 +7,40 @@ public class ProdutoService {
 
     public void adicionarNovoProduto(Produto produto) {
         if (produto.nome.isBlank()) {
+            System.out.println("-----------------");
+
             System.out.println("Digite um nome válido.");
             return;
         }
         if (produto.id <= 0) {
+            System.out.println("-----------------");
+
             System.err.println("ID negativo ou igual a 0. tente novamente");
             return;
         }
         if (produto.preco <= 0) {
+            System.out.println("-----------------");
+
             System.out.println("Preço inválido, tente novamente.");
             return;
         }
         if (produto.quantidade <= 0) {
+            System.out.println("-----------------");
+
             System.out.println("Quantidade inválido, tente novamente.");
             return;
         }
         for (Produto produtoNovo : listaProdutos) {
             if (produtoNovo.id == produto.id) {
+                System.out.println("-----------------");
+
                 System.out.println("ID duplicado ou inválido. Tente novamente");
                 return;
             }
         }
         listaProdutos.add(produto);
+        System.out.println("-----------------");
+
         System.out.println("Produto cadastrado com sucesso.");
 
     }
@@ -38,6 +50,7 @@ public class ProdutoService {
 
         for (Produto encontraProduto : listaProdutos) {
             if (encontraProduto.nome.equalsIgnoreCase(nome)) {
+                System.out.println("-----------------");
                 System.out.println("Produto encontrado " + "ID: " + encontraProduto.id);
                 System.out.println("Produto encontrado " + "Nome: " + encontraProduto.nome);
                 System.out.println("Produto encontrado " + "Preço: " + encontraProduto.preco);
@@ -55,18 +68,22 @@ public class ProdutoService {
     public void atualizaProduto(int idRecebido, String novoNome, double novoPreco, int novaQtd) {
 
         if (novoNome.isBlank()) {
+            System.out.println("-----------------");
             System.out.println("Digite um nome válido");
             return;
         }
         if (idRecebido <= 0) {
+            System.out.println("-----------------");
             System.out.println("Digite um id acima de 0.");
             return;
         }
         if (novoPreco <= 0) {
+            System.out.println("-----------------");
             System.out.println("Digite um valor de preço válido");
             return;
         }
         if (novaQtd <= 0) {
+            System.out.println("-----------------");
             System.out.println("Digite uma quantidade válida");
             return;
         }
@@ -89,43 +106,54 @@ public class ProdutoService {
 
     public void deleteProduto(int idDeletar) {
         if (idDeletar <= 0) {
+            System.out.println("-----------------");
+
             System.out.println("ID negativo, por favor digite um ID válido.");
             return;
         }
         boolean removido = listaProdutos.removeIf(produto -> produto.id == idDeletar);
         if (!removido) {
+            System.out.println("-----------------");
+
             System.out.println("Id Não encontrado");
         } else {
+            System.out.println("-----------------");
+
             System.out.println("Produto deletado");
         }
     }
 
     public void buscaProdutoPorId(int buscaPorId) {
-        boolean produtoEncontradoPorId = false;
 
         if (buscaPorId <= 0) {
+            System.out.println("-----------------");
+
             System.out.println("Digite um ID válido.");
             return;
         }
 
         for (Produto produto : listaProdutos) {
             if (produto.id == buscaPorId) {
+                System.out.println("-----------------");
+
                 System.out.println("Produto encontrado.");
                 System.out.println("Nome: " + produto.nome);
                 System.out.println("Id: " + produto.id);
                 System.out.println("Preço: " + produto.preco);
                 System.out.println("Quantidade: " + produto.quantidade);
-                produtoEncontradoPorId = true;
+                return;
 
             }
         }
-        if (!produtoEncontradoPorId) {
-            System.err.println("ID não registrado na base");
-        }
+        System.out.println("-----------------");
+
+        System.err.println("ID não registrado na base");
+
     }
 
     public void mostraProduto() {
         if (listaProdutos.isEmpty()) {
+            System.out.println("-----------------");
             System.out.println("Não temos produtos cadastrados");
         } else {
             for (Produto produto : listaProdutos) {
