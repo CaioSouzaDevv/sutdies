@@ -3,9 +3,7 @@ import java.util.List;
 
 public class ProdutoService {
 
-ProdutoRepository repository = new ProdutoRepository();
-
-
+    ProdutoRepository repository = new ProdutoRepository();
 
     public void adicionarNovoProduto(Produto produto) {
         if (produto.nome.isBlank()) {
@@ -118,7 +116,9 @@ ProdutoRepository repository = new ProdutoRepository();
             System.out.println("ID negativo, por favor digite um ID válido.");
             return;
         }
-        boolean removido = repository.listaProdutos.removeIf(produto -> produto.id == idDeletar);
+
+        boolean removido = repository.produtoDeletado(idDeletar);
+
         if (!removido) {
             mostrarSeparador();
 
