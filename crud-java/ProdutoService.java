@@ -97,7 +97,7 @@ public class ProdutoService {
                 produto.nome = novoNome;
                 produto.preco = novoPreco;
                 produto.quantidade = novaQtd;
-                System.out.println("------------------------------");
+                mostrarSeparador();
                 System.out.println("Produto atualizado com sucesso.");
                 System.out.println("Nome:" + novoNome);
                 System.out.println("Preço: " + novoPreco);
