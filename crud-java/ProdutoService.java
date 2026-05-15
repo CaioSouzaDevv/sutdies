@@ -146,19 +146,10 @@ public class ProdutoService {
             return;
         }
 
-        for (Produto produto : repository.listaProdutos) {
-            if (produto.id == buscaPorId) {
+        repository.produtoBuscadoPorId(buscaPorId);
+        
                 mostrarSeparador();
 
-                System.out.println("Produto encontrado.");
-                System.out.println("Nome: " + produto.nome);
-                System.out.println("Id: " + produto.id);
-                System.out.println("Preço: " + produto.preco);
-                System.out.println("Quantidade: " + produto.quantidade);
-                return;
-
-            }
-        }
         mostrarSeparador();
 
         System.err.println("ID não registrado na base");
