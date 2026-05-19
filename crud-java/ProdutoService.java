@@ -146,13 +146,21 @@ public class ProdutoService {
             return;
         }
 
-        repository.produtoBuscadoPorId(buscaPorId);
-        
-                mostrarSeparador();
+        Produto produto = repository.produtoBuscadoPorId(buscaPorId);
 
         mostrarSeparador();
 
-        System.err.println("ID não registrado na base");
+        mostrarSeparador();
+
+        if (produto == null) {
+
+            System.err.println("ID não registrado na base");
+        } else {
+            System.out.println(produto.id);
+            System.out.println(produto.nome);
+            System.out.println(produto.preco);
+            System.out.println(produto.quantidade);
+        }
 
     }
 
