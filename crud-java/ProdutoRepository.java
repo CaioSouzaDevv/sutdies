@@ -41,10 +41,10 @@ public class ProdutoRepository {
     public boolean produtoAtualizado(int idRecebido, String novoNome, double novoPreco, int novaQtd) {
         for (Produto produto : listaProdutos) {
             if (idRecebido == produto.id) {
-                 produto.nome = novoNome;
+                produto.nome = novoNome;
                 produto.preco = novoPreco;
                 produto.quantidade = novaQtd;
-     
+
                 return true;
             }
 
@@ -52,4 +52,17 @@ public class ProdutoRepository {
         return false;
     }
 
+    public boolean existeporId(int id) {
+
+        for (Produto produto : listaProdutos) {
+            if (produto.id == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+public List<Produto> listarProdutos() {
+    return listaProdutos;
+}
 }

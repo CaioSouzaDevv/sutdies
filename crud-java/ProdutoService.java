@@ -30,13 +30,10 @@ public class ProdutoService {
             System.out.println("Quantidade inválido, tente novamente.");
             return;
         }
-        for (Produto produtoNovo : repository.listaProdutos) {
-            if (produtoNovo.id == produto.id) {
-                mostrarSeparador();
 
-                System.out.println("ID duplicado ou inválido. Tente novamente");
-                return;
-            }
+        if (repository.existeporId(produto.id) == true) {
+            System.out.println("ID duplicado ou inválido. Tente novamente");
+            return;
         }
 
         boolean adicionado = repository.produtoAdicionado(produto);
@@ -156,11 +153,14 @@ public class ProdutoService {
     }
 
     public void mostraProduto() {
-        if (repository.listaProdutos.isEmpty()) {
+
+        List<Produto> produtos = repository.listarProdutos();
+
+        if (produtos.isEmpty()) {
             mostrarSeparador();
             System.out.println("Não temos produtos cadastrados");
         } else {
-            for (Produto produto : repository.listaProdutos) {
+            for (Produto produto : produtos) {
                 mostrarSeparador();
                 produto.exibirDetalhes();
             }
