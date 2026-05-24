@@ -13,13 +13,13 @@ public class ProdutoRepository {
     }
 
     public boolean produtoDeletado(int idDeletar) {
-        boolean removido = listaProdutos.removeIf(produto -> produto.id == idDeletar);
+        boolean removido = listaProdutos.removeIf(produto -> produto.getId() == idDeletar);
         return removido;
     }
 
     public Produto produtoBuscadoPorId(int buscaPorId) {
         for (Produto produto : listaProdutos) {
-            if (produto.id == buscaPorId) {
+            if (produto.getId() == buscaPorId) {
                 return produto;
             }
         }
@@ -29,7 +29,7 @@ public class ProdutoRepository {
     public Produto produtoBuscadoPorNome(String nome) {
 
         for (Produto produto : listaProdutos) {
-            if (produto.nome.equalsIgnoreCase(nome)) {
+            if (produto.getNome().equalsIgnoreCase(nome)) {
 
                 return produto;
             }
@@ -40,10 +40,10 @@ public class ProdutoRepository {
 
     public boolean produtoAtualizado(int idRecebido, String novoNome, double novoPreco, int novaQtd) {
         for (Produto produto : listaProdutos) {
-            if (idRecebido == produto.id) {
-                produto.nome = novoNome;
-                produto.preco = novoPreco;
-                produto.quantidade = novaQtd;
+            if (idRecebido == produto.getId()) {
+                produto.setNome(novoNome);
+                produto.setPreco(novoPreco);
+                produto.setQuantidade(novaQtd);
 
                 return true;
             }
@@ -55,7 +55,7 @@ public class ProdutoRepository {
     public boolean existeporId(int id) {
 
         for (Produto produto : listaProdutos) {
-            if (produto.id == id) {
+            if (produto.getId() == id) {
                 return true;
             }
         }

@@ -6,32 +6,32 @@ public class ProdutoService {
     ProdutoRepository repository = new ProdutoRepository();
 
     public void adicionarNovoProduto(Produto produto) {
-        if (produto.nome.isBlank()) {
+        if (produto.getNome().isBlank()) {
             mostrarSeparador();
 
             System.out.println("Digite um nome válido.");
             return;
         }
-        if (produto.id <= 0) {
+        if (produto.getId() <= 0) {
             mostrarSeparador();
 
             System.err.println("ID negativo ou igual a 0. tente novamente");
             return;
         }
-        if (produto.preco <= 0) {
+        if (produto.getPreco() <= 0) {
             mostrarSeparador();
 
             System.out.println("Preço inválido, tente novamente.");
             return;
         }
-        if (produto.quantidade <= 0) {
+        if (produto.getQuantidade() <= 0) {
             mostrarSeparador();
 
             System.out.println("Quantidade inválido, tente novamente.");
             return;
         }
 
-        if (repository.existeporId(produto.id) == true) {
+        if (repository.existeporId(produto.getId()) == true) {
             System.out.println("ID duplicado ou inválido. Tente novamente");
             return;
         }
@@ -56,10 +56,10 @@ public class ProdutoService {
             System.out.println("Produto não registrado na base");
         } else {
 
-            System.out.println("Produto encontrado " + "ID: " + produto.id);
-            System.out.println("Produto encontrado " + "Nome: " + produto.nome);
-            System.out.println("Produto encontrado " + "Preço: " + produto.preco);
-            System.out.println("Produto encontrado " + "Quantidade: " + produto.quantidade);
+            System.out.println("Produto encontrado " + "ID: " + produto.getId());
+            System.out.println("Produto encontrado " + "Nome: " + produto.getNome());
+            System.out.println("Produto encontrado " + "Preço: " + produto.getPreco());
+            System.out.println("Produto encontrado " + "Quantidade: " + produto.getQuantidade());
         }
     }
 
@@ -144,10 +144,10 @@ public class ProdutoService {
 
             System.err.println("ID não registrado na base");
         } else {
-            System.out.println(produto.id);
-            System.out.println(produto.nome);
-            System.out.println(produto.preco);
-            System.out.println(produto.quantidade);
+            System.out.println(produto.getId());
+            System.out.println(produto.getNome());
+            System.out.println(produto.getPreco());
+            System.out.println(produto.getQuantidade());
         }
 
     }
