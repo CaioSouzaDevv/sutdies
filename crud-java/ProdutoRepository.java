@@ -66,6 +66,3 @@ public List<Produto> listarProdutos() {
     return listaProdutos;
 }
 }
-
-
-//Banco: postgresql://neondb_owner:npg_dPy3iHGW1BpX@ep-purple-water-aqr1iro4-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
